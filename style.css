@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;700&display=swap');
+
+body{
+  font-family: 'Baloo Bhaina 2', cursive;
+  background: url('photo.jpg') no-repeat;
+  background-size: cover; 
+}
+.container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > .row:first-child {
+  border: 2px solid rgba(0,0,0,0.6);
+  border-radius: 6px;
+  box-shadow: 0 0 32px 0 black;
+  padding: 20px;
+  background-color: hsl(0, 0%, 100%);
+}
+.form-group{
+  margin: 20px;
+  display: grid;
+  justify-items: center;
+  text-transform: uppercase;
+}
+
+.form-group > div {
+  margin: 10px;
+  width: 60%
+}
+
+.form-group > div:first-child{
+  display: flexbox;
+  justify-content: center;
+}
+
+.form-group > div:nth-child(2){
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.form-group > div:last-child{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.form-control{
+  width: 300px
+}
+
+.alert{
+  display:flex;
+  justify-content: center
+}
+
+.alert > p {
+  width: 400px
+}
+
+h1{
+  text-align: center;
+}

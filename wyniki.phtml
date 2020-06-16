@@ -1,0 +1,58 @@
+<?php 
+    session_start();
+
+
+    function iloscGlosow($x){
+        $conn = mysqli_connect("localhost", "Jakub", "123", "Jakub_") or die("<p class='alert alert-danger'><span class='alert-heading'>Błąd...</span></p>");
+        $kwe = "SELECT COUNT(id) FROM _vote WHERE choosenOption = '$x'";
+        $que = mysqli_query($conn, $kwe) or die("<p class='alert alert-danger'><span class='alert-heading'>Błąd zapytania...</span></p>");
+        $odp = mysqli_fetch_assoc($que);
+
+        return $odp['COUNT(id)'];
+    };
+?>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+    <title>Wyniki glosowania</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class='jumbotron jumbotron-fluid my-3'>
+                    <div class='container'>
+                        <h1 class='display-2'>Oddane Głosy</h1>
+                        <p class='lead'>Tabela pokazująca oddane głosy w głosowaniu</p>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Startujący</th>
+                            <th>Liczba głosow</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $conn = mysqli_connect("localhost", "Jakub", "123", "Jakub_") or die("<p class='alert alert-danger'><span class='alert-heading'>Blad...</span></p>");
+                            $kwe = "SELECT * FROM _startujący";
+                            $que = mysqli_query($conn, $kwe) or die("<p class='alert alert-danger'><span class='alert-heading'>Błąd zapytania...</span></p>");
+                            
+                            while($x = mysqli_fetch_assoc($que)){
+                                $nazwa = $x['nazwa'];
+                                echo "<tr><th scope='row'>".$x['id']."<td>".$nazwa."</td><td>".iloscGlosow($nazwa)."</td></th></tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
