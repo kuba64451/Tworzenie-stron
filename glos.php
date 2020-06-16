@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $message = "<p class='alert alert-info'>Wprowadz dane</p>";
+    $message = "<p class='alert alert-info'>Wprowadź dane</p>";
     /*if($_POST["ID"] && $_POST["Person"] && is_numeric($_POST["ID"]) && strlen($_POST["ID"]) == 6 && intval($_POST["ID"]) % 7 == 0){
     echo $message = "<p class='alert alert-success'>Oddany glos</p>";
     }else{
