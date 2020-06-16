@@ -1,2 +1,2 @@
-# TEB
-tworzenie witryn
+# REPOZYTORIUM - Jakub Ł.
+TWORZENIE WITRYN WWW
